@@ -16,3 +16,15 @@ urlpatterns = [
     # path for add a review view
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+from django.urls import path
+from django.conf.urls.static import static
+from django.conf import settings
+from . import views
+
+app_name = 'djangoapp'
+
+urlpatterns = [
+    path('login', views.login_user, name='login'),
+    path('logout', views.logout, name='logout'),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+

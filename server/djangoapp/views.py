@@ -63,3 +63,12 @@ def login_user(request):
 # Create a `add_review` view to submit a review
 # def add_review(request):
 # ...
+
+from django.contrib.auth import logout as django_logout
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+
+@csrf_exempt
+def logout(request):
+    django_logout(request)
+    return JsonResponse({"userName": ""})
